@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            text-align: center;
+        }
+        #tab{
+        text-align: center;
+        font-style: oblique;
+        font-size: smaller;
+        }
+        h3{
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>All Users</h3>
+    <hr>
+    <table class="table table-success table-striped" id="tab" >
+        
+        {%for msg in qs%}
+            <tr>
+                <td>
+                    <h4>{{msg.mailid}}</h4>
+                    </td>
+                {%empty%}
+                <h2 class="err">No Mails Found</h2>
+            </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

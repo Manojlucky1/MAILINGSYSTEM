@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+    h6,h3{
+        padding-left: 30px;
+        
+    }
+    h6{
+        padding-top: 20px;
+        font-style: italic;
+        font-size: medium;
+    }
+    h3{
+        text-align: center;
+        color: brown;
+        font-style: arial;
+        text-decoration: underline;
+    }
+    #tab{
+        text-align: center;
+        font-style: oblique;
+}
+.err{
+    color: red;
+}
+.time{
+    text-align: end;
+    font-size: smaller;
+}
+   </style>
+</head>
+<body>
+    <h6>{{request.session.mail}}</h6>
+    <center>
+    <h3>Inbox</h3>
+    <hr>
+    <table class="table table-success table-striped" id="tab" >
+        
+        {%for msg in qs%}
+            <tr>
+                <td>
+                    <h4>{{msg.from_user}}</h4>
+                    <p>{{msg.content}}</p>
+                    <p class="time">{{msg.sent_at}}</p></td>
+                {%empty%}
+                <h2 class="err">No Mails Found</h2>
+            </tr>
+        {%endfor%}
+    </table>
+</center>
+</body>
+</html>
